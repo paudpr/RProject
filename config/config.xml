@@ -11,25 +11,21 @@
 
 <config>
   
-  <input>
-    <pais>contactosAnonimos.csv</pais>
-    <sep>,</sep>
-    <ano>contactosAnonimos.csv</ano>
-    <sep>,</sep>
-  </input>
-  
+
   <columnas>
+    
+  <index>
+    <pais>pais</pais>
+    <ano>años</ano>
+  </index>
+  
     <predictoras>
-      <pobl>poblacion</pobl>
-      <esp_vida>Esperanza de vida</esp_vida>
-      <cre_pobl>Crecimiento poblacional</cre_pobl>
-      <cre_urb>Crecimiento poblacional urbano</cre_urb>
-      <den_pobl>Densidad de poblacion</den_pobl>
+     cre_pobl.csv,cre_urb.csv,den_pobl.csv, ener_pers.csv, esp_vida.csv
     </predictoras>
   </columnas>
   
   <target>
-    <ener_per>Uso energetico por persona</ener_per>
+    life_expectancy_years.csv
   </target>
     
   
