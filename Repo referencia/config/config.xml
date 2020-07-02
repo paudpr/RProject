@@ -1,0 +1,39 @@
+<config>
+  
+  <input>
+    <name>contactosAnonimos.csv</name>
+    <sep>,</sep>
+  </input>
+  
+  <columnas>
+    
+    <ID>Contact ID</ID>
+    
+    <predictorasNumericas>Number of Sessions, Number of Pageviews, Sends Since Last Engagement</predictorasNumericas>
+    <fuenteOriginal>Original Source</fuenteOriginal>
+    <dominio_mail>Email Domain</dominio_mail>
+    
+    <fechas>
+      <creacion>Create Date</creacion>
+      <ultima_mod>Last Modified Date</ultima_mod>
+      <apertura_ultimo>Last marketing email open date</apertura_ultimo>
+      <envio_ultimo>Last marketing email send date</envio_ultimo>
+      <apertura_primero>First marketing email open date</apertura_primero>
+      <envio_primero>First marketing email send date</envio_primero>
+      <visita_primero>Time First Seen</visita_primero>
+      <visita_ultimo>Time Last Seen</visita_ultimo>
+      <tiempos>0.25, 8, 24</tiempos>
+    </fechas>
+    
+    <mails>
+      <mailsDl>Marketing emails delivered</mailsDl>
+      <mailsCl>Marketing emails clicked</mailsCl>
+      <mailsOp>Marketing emails opened</mailsOp>
+      <ratios>TRUE</ratios>
+    </mails>
+    
+    <target>Lead Status</target>
+    <llamada>Resultado de la llamada</llamada>
+    
+  </columnas>
+</config>
