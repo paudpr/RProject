@@ -1,0 +1,23 @@
+#' Title
+#'
+#' @param datos 
+#' @param config 
+#'
+#' @import xgboost
+#' @import logging
+#'
+#' @examples
+generar_modelo <- function(datos, config){
+
+  datos <- selec_column(datos, config) #datos del DF que utilizo para entrenar
+  
+  num_train <- round(nrow(datos) * 0.7) #numero de datos para entrenar
+  posicion_train <- sample(1:nrow(datos), size = num_train) #posiciones de los datos para entrenar en el DF
+  
+  train <- datos[posicion_train] #conjunto de datos para train
+  test <- datos[-posicion_train] #conjunto de datos para test
+  
+  library(xgboost)
+  #Creamos las matrices necesarias para el modelo
+  dtrain = xgb.DMatrix(data=data.matrix(train), label= contactosEntrenados$target[trainPos]) 
+}
