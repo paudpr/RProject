@@ -1,0 +1,36 @@
+#Nombres columnas y config
+#pais
+#año
+#Poblacion: pobl
+#Esperanza de vida: esp_vida
+#Crecimiento poblacional(%): cre_pobl
+#Crecimiento poblacional urbano (%): cre_urb
+#Densidad de poblacion (%): den_pobl
+
+#Uso energetico por persona: ener_pers (TARGET)
+
+<config>
+  
+  <input>
+    <pais>contactosAnonimos.csv</pais>
+    <sep>,</sep>
+    <ano>contactosAnonimos.csv</ano>
+    <sep>,</sep>
+  </input>
+  
+  <columnas>
+    <predictoras>
+      <pobl>poblacion</pobl>
+      <esp_vida>Esperanza de vida</esp_vida>
+      <cre_pobl>Crecimiento poblacional</cre_pobl>
+      <cre_urb>Crecimiento poblacional urbano</cre_urb>
+      <den_pobl>Densidad de poblacion</den_pobl>
+    </predictoras>
+  </columnas>
+  
+  <target>
+    <ener_per>Uso energetico por persona</ener_per>
+  </target>
+    
+  
+</config>
