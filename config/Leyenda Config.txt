@@ -1,0 +1,8 @@
+Nombres columnas y config
+   #Poblacion: pobl
+   #Esperanza de vida: esp_vida
+   #Crecimiento poblacional(%): cre_pobl
+   #Crecimiento poblacional urbano (%): cre_urb
+   #Densidad de poblacion (%): den_pobl
+
+   #Uso energetico por persona: ener_pers (TARGET)
