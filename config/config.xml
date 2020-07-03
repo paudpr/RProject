@@ -20,13 +20,13 @@
   </index>
   
     <predictoras>
-     cre_pobl.csv,cre_urb.csv,den_pobl.csv, ener_pers.csv, esp_vida.csv
+     cre_pobl.csv,cre_urb.csv,den_pobl.csv, esp_vida.csv
     </predictoras>
   </columnas>
   
   <target>
     life_expectancy_years.csv
   </target>
-    
+  
   
 </config>
