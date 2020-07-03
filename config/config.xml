@@ -1,17 +1,5 @@
-#Nombres columnas y config
-#pais
-#año
-#Poblacion: pobl
-#Esperanza de vida: esp_vida
-#Crecimiento poblacional(%): cre_pobl
-#Crecimiento poblacional urbano (%): cre_urb
-#Densidad de poblacion (%): den_pobl
-
-#Uso energetico por persona: ener_pers (TARGET)
-
 <config>
   
-
   <columnas>
     
   <index>
@@ -19,14 +7,10 @@
     <ano>años</ano>
   </index>
   
-    <predictoras>
-     cre_pobl.csv,cre_urb.csv,den_pobl.csv, esp_vida.csv
-    </predictoras>
+    <predictoras>cre_pobl.csv,cre_urb.csv,den_pobl.csv,esp_vida.csv</predictoras>
   </columnas>
   
-  <target>
-    life_expectancy_years.csv
-  </target>
+  <target>life_expectancy_years.csv</target>
   
   
 </config>

@@ -8,7 +8,7 @@
 #' @import data.table
 #' @import logging
 
-leerDatos <- function(config, path){
+leer_datos <- function(config, path){
   
   pathDatos <- paste0(path, "data/")
   
@@ -17,13 +17,23 @@ leerDatos <- function(config, path){
     #DATOS A TRADUCIR A R
     string<- config$columnas$predictoras
     lista_nombre <- strsplit(string,',')
-    lista_csv<-c()
+    lista_csv<-list()
     
-    for i in lista_nombre(){
-      datos <- data.table::fread(paste(pathDatos,i), sep = config$input$sep,
+
+    
+    for (i in 1:length(lista_nombre)){
+      browser()
+      datos <- data.table::fread(paste(pathDatos,lista_nombre[[i]]), sep = config$input$sep,
                                  encoding = 'UTF-8', data.table = FALSE)
+      # if(nrow(datos) == 0 | ncol(datos) == 0){
+      #   
+      #   logerror("Datos mal leido, verifica que tengan un buen formato. ",
+      #            logger = 'log')
+      #   stop()
+      #   
+      # }
       
-      lista_csv<-c(lista_csv,datos)
+      lista_csv[[i]]<-datos
     }
       
   
@@ -36,14 +46,9 @@ leerDatos <- function(config, path){
     stop()
   })
   
-  if(nrow(datos) == 0 | ncol(datos) == 0){
-    
-    logerror("Datos mal leido, verifica que tengan un buen formato. ",
-             logger = 'log')
-    stop()
-    
-  }
+
   
-  return(datos)
+  return(lista_csv)
   
 }
+

@@ -7,20 +7,26 @@
 #' @import logging
 #'
 #' @examples
-preProcesarDatos <- function(lista_csv, config){
+library(reshape2)
+
+preproceso <- function(lista_csv, config){
   #datos = el df
-  lista_dfs<-c()
-  #DATOS A TRADUCIR A R
-  for (df in lista_csv){
-    df$pais <-rownames(df)
-    df2 <- melt(data = df, id.vars = 'pais', measure.vars = colnames(i)[2:length(colnames(i))])
-    lista_dfs<-c(lista_dfs,df2)
   
-  df = lista_dfs[1]
-  for (i in 2:length(lista_dfs)){
-    df = merge(df, df[i+1], by = c('pais','ano'))
+  #DATOS A TRADUCIR A R
+  for (i in 1:length(lista_csv)){
+    df$pais <-rownames(lista_csv[[i]])
+    col = colnames(i)
+    
+    df2 <- melt(data = df, id.vars = 'pais', measure.vars = col[!(col %in% "pais")])
+    lista_csv[[i]]<-df2
+  
+  df <-lista_csv[[1]]
+  for (i in 2:length(lista_csv)){
+    df <- merge(df, lista_csv[[i]], by = c('pais','ano'))
     
   }
+  
+  
     
     
     #merge(x, y, by = c("k1","k2"))
