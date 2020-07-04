@@ -17,7 +17,14 @@ generar_modelo <- function(datos, config){
   train <- datos[posicion_train] #conjunto de datos para train
   test <- datos[-posicion_train] #conjunto de datos para test
   
-  library(xgboost)
-  #Creamos las matrices necesarias para el modelo
-  dtrain = xgb.DMatrix(data=data.matrix(train), label= contactosEntrenados$target[trainPos]) 
+  #modelo 1 --> LinearRegression
+  
+  
+  #modelo 2 --> SGDRegression 
+  
+  
+  #modelo 3 --> SVM
+  
+  
+  #modelo 4 --> RandomForest
 }
