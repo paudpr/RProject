@@ -16,11 +16,17 @@ generar_modelo <- function(datos, config){
   
   train <- datos[posicion_train,] #conjunto de datos para train
   test <- datos[-posicion_train,] #conjunto de datos para test
-  
+
   #modelo 1 --> Multiple LinearRegression
-  linearMod <- lm(ener_pers ~ ., data = train)#data es el grupo d datos xra entrenar?
-  print(linearMod)
+  linear_mod <- lm(ener_pers ~ ., data = train)#data es el grupo d datos xra entrenar?
+  print(linear_mod)
+  linear_mod_summary <- summary(linear_mod)
+  linear_mod_coeffs <- linear_mod_summary$coefficients
   
+  test$height_predic <- predict(linear_mod, test)
+  linear_mod_acc <- abs(sum(test$height - test$height_predic)/nrow(test))
+  print(linear_mod_acc)
+    
   #modelo 2 --> SGDRegression 
   
   
