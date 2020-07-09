@@ -1,13 +1,11 @@
 <config>
   
   <columnas>
-    
-  <index>
-    <pais>pais</pais>
-    <ano>años</ano>
-  </index>
-  
-    <predictoras>cre_pobl.csv,cre_urb.csv,den_pobl.csv,esp_vida.csv</predictoras>
+    <index>
+      <pais>pais</pais>
+      <ano>años</ano>
+    </index>
+    <predictoras>cre_pobl.csv, cre_urb.csv, den_pobl.csv, esp_vida.csv</predictoras>
   </columnas>
   
   <target>life_expectancy_years.csv</target>

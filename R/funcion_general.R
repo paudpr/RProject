@@ -9,7 +9,7 @@
 #'
 #' @author Ander
 funcion_general <- function(path){
-  browser()
+  
   
   tryCatch(expr = {
     
@@ -20,11 +20,13 @@ funcion_general <- function(path){
     loginfo("Empezamos la app...", logger = 'log')
     
     loginfo("Leyendo el config...", logger = 'log')
+    
     config <- leerConfig(path)
     loginfo("Config leido.", logger = 'log')
     
     
     loginfo("Leyendo los datos...", logger = 'log')
+    browser()
     datos <- leer_datos(config, path)
     loginfo("Datos leidos.", logger = 'log')
     
