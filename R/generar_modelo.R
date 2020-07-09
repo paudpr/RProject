@@ -6,6 +6,7 @@
 #' @import sgd
 #' @import e1071
 #' @import logging
+#' @import randomForest
 #'
 #' @examples
 generar_modelo <- function(datos, config){
@@ -19,7 +20,7 @@ generar_modelo <- function(datos, config){
   test <- datos[-posicion_train,] #conjunto de datos para test
 
   #modelo 1 --> Multiple LinearRegression
-  linear_mod <- lm(train$ener_pers ~ ., data = train) #data es el grupo d datos xra entrenar
+  linear_mod <- lm(train$ener_pers ~ ., data = train) #data es el grupo de datos xra entrenar
   print(linear_mod)
   linear_mod_summary <- summary(linear_mod)
   
@@ -44,4 +45,6 @@ generar_modelo <- function(datos, config){
   print(svr_mod_acc)
   
   #modelo 4 --> RandomForest
+  
+  
 }
