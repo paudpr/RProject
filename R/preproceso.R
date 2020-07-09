@@ -19,7 +19,7 @@ preproceso <- function(lista_csv, config){
     col <-colnames(lista_csv[[i]])
     
     
-    df2 <- melt(data = df, id.vars = 'pais',variable.name='anos', measure.vars = col[!(col %in% "country")])
+    df2 <- melt(data = lista_csv[[i]], id.vars = 'pais',variable.name='anos', measure.vars = col[!(col %in% "country")])
     lista_csv[[i]]<-df2
   
   df <-lista_csv[[1]]
@@ -230,3 +230,4 @@ splitearDatos <- function(datos, config){
   return(listaDatosSpliteados)
   
 }
+

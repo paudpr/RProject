@@ -16,14 +16,14 @@ leer_datos <- function(config, path){
   tryCatch(expr = {
     #DATOS A TRADUCIR A R
     string<- config$columnas$predictoras
-    lista_nombre <- strsplit(string,',')
+    lista_nombre <- strsplit(string,',')[[1]]
+    #split ponerlo en el config
     lista_csv<-list()
     
 
     
     for (i in 1:length(lista_nombre)){
-      browser()
-      datos <- data.table::fread(paste(pathDatos,lista_nombre[[i]]), sep = config$input$sep,
+      datos <- data.table::fread(paste0(pathDatos,lista_nombre[i]), sep = ',',
                                  encoding = 'UTF-8', data.table = FALSE, header = TRUE)
       # if(nrow(datos) == 0 | ncol(datos) == 0){
       #   
