@@ -3,7 +3,7 @@
 #' @param datos 
 #' @param config 
 #'
-#' @import xgboost
+#' @import sgd
 #' @import logging
 #'
 #' @examples
@@ -18,7 +18,7 @@ generar_modelo <- function(datos, config){
   test <- datos[-posicion_train,] #conjunto de datos para test
 
   #modelo 1 --> Multiple LinearRegression
-  linear_mod <- lm(ener_pers ~ ., data = train)#data es el grupo d datos xra entrenar?
+  linear_mod <- lm(ener_pers ~ ., data = train) #data es el grupo d datos xra entrenar?
   print(linear_mod)
   linear_mod_summary <- summary(linear_mod)
   linear_mod_coeffs <- linear_mod_summary$coefficients
