@@ -45,6 +45,10 @@ generar_modelo <- function(datos, config){
   print(svr_mod_acc)
   
   #modelo 4 --> RandomForest
+  rand_for_mod <- randomForest(train$ener_pers ~ ., data = train)
+  rand_for_mod
   
-  
+  test$ener_pers_predic <- predict(rand_for_mod, test)
+  rand_for_mod_acc <- abs(sum(test$ener_pers - test$ener_pers_predic)/nrow(test))
+  print(rand_for_mod_acc)
 }
