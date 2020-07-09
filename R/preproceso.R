@@ -11,13 +11,11 @@ library(reshape2)
 
 preproceso <- function(lista_csv, config){
   #datos = el df
-  
-  #DATOS A TRADUCIR A R
+
   for (i in 1:length(lista_csv)){
     #df$pais <-rownames(lista_csv[[i]])
     # col = colnames(i)
     col <-colnames(lista_csv[[i]])
-    
     
     df2 <- melt(data = lista_csv[[i]], id.vars = 'pais',variable.name='anos', measure.vars = col[!(col %in% "country")])
     lista_csv[[i]]<-df2
@@ -25,7 +23,7 @@ preproceso <- function(lista_csv, config){
   df <-lista_csv[[1]]
   for (i in 2:length(lista_csv)){
     df <- merge(df, lista_csv[[i]], by = c('pais','anos'))
-    
+  return(df)
   }
   
   
