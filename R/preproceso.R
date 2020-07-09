@@ -14,15 +14,17 @@ preproceso <- function(lista_csv, config){
   
   #DATOS A TRADUCIR A R
   for (i in 1:length(lista_csv)){
-    df$pais <-rownames(lista_csv[[i]])
-    col = colnames(i)
+    #df$pais <-rownames(lista_csv[[i]])
+    # col = colnames(i)
+    col <-colnames(lista_csv[[i]])
     
-    df2 <- melt(data = df, id.vars = 'pais', measure.vars = col[!(col %in% "pais")])
+    
+    df2 <- melt(data = df, id.vars = 'pais',variable.name='anos', measure.vars = col[!(col %in% "country")])
     lista_csv[[i]]<-df2
   
   df <-lista_csv[[1]]
   for (i in 2:length(lista_csv)){
-    df <- merge(df, lista_csv[[i]], by = c('pais','ano'))
+    df <- merge(df, lista_csv[[i]], by = c('pais','anos'))
     
   }
   

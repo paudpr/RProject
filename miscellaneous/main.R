@@ -1,4 +1,5 @@
 #directorio <- "~/BOOTCAMPS/18112019/clasificarContactos/"
+#C:\Users\34653\Documents\RProject\RProject
 
 directorio <- "~/RProject/RProject/"
 setwd(directorio)

@@ -24,7 +24,7 @@ leer_datos <- function(config, path){
     for (i in 1:length(lista_nombre)){
       browser()
       datos <- data.table::fread(paste(pathDatos,lista_nombre[[i]]), sep = config$input$sep,
-                                 encoding = 'UTF-8', data.table = FALSE)
+                                 encoding = 'UTF-8', data.table = FALSE, header = TRUE)
       # if(nrow(datos) == 0 | ncol(datos) == 0){
       #   
       #   logerror("Datos mal leido, verifica que tengan un buen formato. ",
