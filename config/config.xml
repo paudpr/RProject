@@ -1,14 +1,12 @@
 <config>
-  
   <columnas>
     <index>
-      <pais>pais</pais>
-      <ano>años</ano>
+      <pais>Afghanistan</pais>
+      <ano>1960</ano>
     </index>
     <predictoras>cre_pobl.csv, cre_urb.csv, den_pobl.csv, esp_vida.csv</predictoras>
   </columnas>
   
   <target>life_expectancy_years.csv</target>
-  
   
 </config>

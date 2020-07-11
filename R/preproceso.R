@@ -25,6 +25,7 @@ preproceso <- function(lista_csv, config){
     df <- merge(df, lista_csv[[i]], by = c('pais','anos'))
   return(df)
   }
+}
   
   
   
@@ -70,11 +71,12 @@ preproceso <- function(lista_csv, config){
       df <- subset(df, select = -c(is.na(config$columnas$index$pais), is.na(config$columnas$index$ano)))
       
       #para cada valor en NA de una fila q, eliminar la fila
-      if (df$country != config$columnas$index$pais, config$columnas$index$ano){
+      if (df$country != config$columnas$index$pais & df$anos != config$columnas$index$ano){
         datos_1 <- df[complete.cases(df),]
         complete_rows <- na.omit(df)
       }
   }
+  
     
     
     
