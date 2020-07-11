@@ -21,34 +21,27 @@ generar_modelo <- function(datos, config){
 
   #modelo 1 --> Multiple LinearRegression
   linear_mod <- lm(train$ener_pers ~ ., data = train) #data es el grupo de datos xra entrenar
-  print(linear_mod)
-  linear_mod_summary <- summary(linear_mod)
-  
   test$ener_pers_predic <- predict(linear_mod, test)
   linear_mod_acc <- abs(sum(test$ener_pers - test$ener_pers_predic)/nrow(test))
-  print(linear_mod_acc)
-    
+  
   #modelo 2 --> SGDRegression 
   sgd_mod <- sgd(train$ener_pers ~ ., data = train, model = "lm")
-  print(sgd_mod)
-  
   test$ener_pers_predic <- predict(sgd_mod, test)
   sgd_mod_acc <- abs(sum(test$ener_pers - test$ener_pers_predic)/nrow(test))
-  print(sgd_mod_acc)
+  
   
   #modelo 3 --> SVR Linear
   svr_mod <- svm(train$ener_pers ~ ., data = train)
-  svr_mod
-  
   test$ener_pers_predic <- predict(svr_mod, test)
   svr_mod_acc <- abs(sum(test$ener_pers - test$ener_pers_predic)/nrow(test))
-  print(svr_mod_acc)
+  
   
   #modelo 4 --> RandomForest
-  rand_for_mod <- randomForest(train$ener_pers ~ ., data = train)
-  rand_for_mod
-  
+  rand_for_mod <- randomForest(train$ener_pers ~ ., data = train, importance = TRUE, ntrees = 50)
   test$ener_pers_predic <- predict(rand_for_mod, test)
   rand_for_mod_acc <- abs(sum(test$ener_pers - test$ener_pers_predic)/nrow(test))
-  print(rand_for_mod_acc)
+  
+  accuracies <- data.frame(models = c("Linear Regre", "SGD Regre", "SVM Regre", "RandomForest"), 
+                           accuracy = c(linear_mod_acc, sgd_mod_acc, svr_mod_acc, rand_for_mod_acc))
+  accuracies
 }
