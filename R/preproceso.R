@@ -66,14 +66,19 @@ preproceso <- function(lista_csv, config){
     df <- df[,columnas_utilizadas]
     
     
-  limpieza_nas <- function(df, config){
-      #para cada valor en NA de una columna de las predicción en el config, eliminar columna
-      df <- subset(df, select = -c(is.na(config$columnas$index$pais), is.na(config$columnas$index$ano)))
+  limpieza_na <- function(df, config){
+    
+    df_select <- (df$country %in% config$columnas$index$pais) & 
+      (df$anos %in% config$columnas$index$ano)
+    #ahora miro en qué columna de esa fila hay na
+    #ahora miro en qué columna de esa fila hay na
+    n <-is.na(df[c(df_select),])
+    df_selected <-df[,!c(n)]
+    df_limpio <-na.omit(df_selected)
+    return(df_limpio)
+
+        
       
-      #para cada valor en NA de una fila q, eliminar la fila
-      if (df$country != config$columnas$index$pais & df$anos != config$columnas$index$ano){
-        datos_1 <- df[complete.cases(df),]
-        complete_rows <- na.omit(df)
       }
   }
   

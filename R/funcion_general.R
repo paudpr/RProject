@@ -21,12 +21,12 @@ funcion_general <- function(path){
     
     loginfo("Leyendo el config...", logger = 'log')
     
-    config <- leerConfig(path)
+    config <- leerConfig(path=directorio)
     loginfo("Config leido.", logger = 'log')
     
     
     loginfo("Leyendo los datos...", logger = 'log')
-    browser()
+    # browser()
     datos <- leer_datos(config, path)
     loginfo("Datos leidos.", logger = 'log')
     
@@ -34,10 +34,10 @@ funcion_general <- function(path){
     loginfo("Procesando los datos...", logger = 'log')
     df_unico <- preproceso(datos, config)
     loginfo("Datos procesados.", logger = 'log')
-    
+    df_unico_limpio <-limpieza_na(df_unico)
     
     loginfo("Generando modelo...", logger = 'log')
-    output <- generar_modelo(df_unico, config)
+    output <- generar_modelo(df_unico_limpio, config)
     loginfo("Modelo Generado.", logger = 'log')
     
     
@@ -56,7 +56,7 @@ funcion_general <- function(path){
     removeHandler(writeToFile, logger = 'log')
     
   })
-  
+
   
 }
 
